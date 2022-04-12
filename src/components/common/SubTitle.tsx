@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const StyledSubTitle = styled.h2`
+const StyledSubTitle = styled.h3`
   margin-left: 1rem;
   margin-right: 1rem;
   text-align: center;
