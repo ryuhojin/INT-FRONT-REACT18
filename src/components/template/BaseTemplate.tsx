@@ -2,12 +2,12 @@ import { lighten } from "polished";
 import styled from "styled-components";
 
 const StyledBaseTemplate = styled.div`
-  background: #fff;
   height: 100%;
 `;
 
 const StyledHeaderTemplate = styled.div`
   width: 100%;
+  background: #fff;
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
 `;
 

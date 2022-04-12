@@ -22,10 +22,10 @@ const StyledContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 60px;
+  height: 3.5rem;
 `;
 
-const StyledLogo = styled.h3`
+const StyledLogo = styled.h4`
   cursor: pointer;
   color:#F67E7D;
   :hover {

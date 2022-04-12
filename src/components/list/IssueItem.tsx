@@ -4,6 +4,7 @@ const StyledIssueItem = styled.div`
   margin-left: 0.5rem;
   margin-right: 0.5rem;
   border-radius: 5px;
+  background: #fff;
   border: 1px solid #ddd;
   @media only screen and (max-width: 768px) {
     margin-left: 0rem;
@@ -13,8 +14,7 @@ const StyledIssueItem = styled.div`
   }
 `;
 const StyledIssuCategoryContainer = styled.div`
-  padding: 0.3rem 0 0.3rem 0.3rem;
-  background: #77b2ff;
+  padding: 0.5rem;
 `;
 const StyledIssueCategory = styled.p`
   margin: 0;
@@ -23,13 +23,9 @@ const IssueItem = () => {
   return (
     <StyledIssueItem>
       <StyledIssuCategoryContainer>
-        <StyledIssueCategory>타입스크립트 </StyledIssueCategory>
+        <StyledIssueCategory>타입스크립트</StyledIssueCategory>
+        <StyledIssueCategory>내용입니다.내용입니다.내용입니다.내용입니다.내용입니다.내용입니다.내용입니다.내용입니다.내용입니다.내용입니다.내용입니다.내용입니다.내용입니다.내용입니다.내용입니다.</StyledIssueCategory>
       </StyledIssuCategoryContainer>
-      <p>
-        asdfadsdfadsfasdfadsf adfasd fa dfadsfasdfadsf adfasd fa dfadsfasdfadsf
-        adfasd fa dfadsfasdfadsf adfasd fa dfadsfasdfadsf adfasd fa fasdfadsf
-        adfasd fa sd fa sd fa
-      </p>
     </StyledIssueItem>
   );
 };
