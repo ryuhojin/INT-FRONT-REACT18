@@ -1,3 +1,4 @@
+import { lighten } from "polished";
 import styled from "styled-components";
 
 const StyledBaseTemplate = styled.div`
@@ -5,13 +6,17 @@ const StyledBaseTemplate = styled.div`
   height: 100%;
 `;
 
+const StyledHeaderTemplate = styled.div`
+  width: 100%;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
+`;
+
 const StyledContentTemplate = styled.div`
-  width: 1024px;
+  width: 768px;
   margin-left: auto;
   margin-right: auto;
-  height: 50%;
-  @media only screen and (max-width: 1440px) {
-    width: calc(100% - 2rem);
+  @media only screen and (max-width: 768px) {
+    width: 100%;
   }
 `;
 
@@ -24,7 +29,7 @@ const BaseTemplate = ({
 }) => {
   return (
     <StyledBaseTemplate>
-      {header}
+      <StyledHeaderTemplate>{header}</StyledHeaderTemplate>
       <StyledContentTemplate>{children}</StyledContentTemplate>
     </StyledBaseTemplate>
   );

@@ -8,7 +8,7 @@ const dialogAtom = atom({
     visible: false,
   },
 });
-const messageAtom = atom({
+const alertAtom = atom({
   key: "message",
   default: {
     title: "주의",
@@ -16,4 +16,4 @@ const messageAtom = atom({
     isShow: false,
   },
 });
-export { dialogAtom, messageAtom };
+export { dialogAtom, alertAtom };

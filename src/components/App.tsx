@@ -18,7 +18,7 @@ const App = () => {
         <meta name="og:description" content="페이지별 요약 내용 들어갈 곳" />
         <meta name="og:type" content="website" />
       </Helmet>
-      <Alert/>
+      {/* <Alert/> */}
       <Routes>
         <Route path="/" element={<Home />} />
       </Routes>

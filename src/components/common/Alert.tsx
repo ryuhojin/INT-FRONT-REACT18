@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useRecoilValue } from "recoil";
-import { messageAtom } from "@/store/common";
-import { useMessage } from "@/utils/message";
+import { alertAtom } from "@/store/common";
+import { useAlert } from "@/utils/message";
 import styled, { css, keyframes } from "styled-components";
 import Button from "./Button";
 const fadeIn = keyframes`
@@ -89,11 +89,12 @@ const ButtonGroup = styled.div`
 `;
 
 const Alert = ({ confirmText }: any) => {
-  const message = useRecoilValue(messageAtom);
-  const messageFn = useMessage();
+  const message = useRecoilValue(alertAtom);
+  const alertFn = useAlert();
   const visible = message.isShow;
   const [animate, setAnimate] = useState(false);
   const [localVisible, setLocalVisible] = useState(visible);
+
   useEffect(() => {
     if (localVisible && !visible) {
       setAnimate(true);
@@ -101,6 +102,10 @@ const Alert = ({ confirmText }: any) => {
     }
     setLocalVisible(visible);
   }, [localVisible, visible]);
+
+  const onCloseAlert = () =>{
+    alertFn.close();
+  }
 
   if (!animate && !localVisible) return null;
   return (
@@ -111,9 +116,7 @@ const Alert = ({ confirmText }: any) => {
         <ButtonGroup>
           <Button
             color="red"
-            onClick={() => {
-              messageFn.close();
-            }}
+            onClick={onCloseAlert}
           >
             {confirmText}
           </Button>
