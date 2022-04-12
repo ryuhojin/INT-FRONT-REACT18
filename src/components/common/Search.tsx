@@ -4,11 +4,12 @@ const StyledInput = styled.input`
   width: -webkit-fill-available;
   font-size:1.125rem;
   padding:.8rem;
-  margin:0 1rem;
+  margin:0 .5rem;
   border:1px solid #aaa;
   border-radius: 5px;
+  outline:none;
   :focus  {
-    outline-color: #F67E7D;
+    border-color: #F67E7D;
   }
 `;
 const Search = ({ ...rest }: any) => {
