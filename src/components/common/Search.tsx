@@ -32,7 +32,7 @@ const StyledSort = styled.div`
   display: flex;
   align-items: center;
   color: #555;
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   svg {
     cursor: pointer;
   }
