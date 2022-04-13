@@ -6,14 +6,15 @@ const StyledIssueAdd = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 1px dashed #e1e1e1;
   width: -webkit-fill-available;
   height: 2.5rem;
   background: #fff;
   border-radius: 5px;
-  cursor: pointer;
-  :hover {
-    border: 1px dashed #F67E7D;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
+  cursor:pointer;
+  :hover{
+    background-color: #F67E7D;
+    color:#fff;
   }
 `;
 const IssueAdd = () => {
