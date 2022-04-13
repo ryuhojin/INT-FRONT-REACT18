@@ -15,17 +15,23 @@ const Root = () => {
           content="개발자들의 편한 트러블 슈팅들을 도와드립니다."
         />
       </Helmet>
-      <Suspense
-        fallback={
-          <BaseTemplate>
-            <></>
-          </BaseTemplate>
-        }
-      >
-        <Routes>
-          <Route path="/" element={<Home />} />
-        </Routes>
-      </Suspense>
+
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <Suspense
+              fallback={
+                <BaseTemplate>
+                  <></>
+                </BaseTemplate>
+              }
+            >
+              <Home />
+            </Suspense>
+          }
+        />
+      </Routes>
     </>
   );
 };
