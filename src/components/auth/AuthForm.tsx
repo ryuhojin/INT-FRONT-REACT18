@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 import { media } from "@/libs/styles";
+import { AuthEmailForm, AuthPasswordForm } from "./form";
 
 const StyledAuthForm = styled.div`
   display: flex;
@@ -60,6 +61,14 @@ const AuthForm: React.FC<AuthFormProps> = ({ mode }) => {
     <StyledAuthForm>
       <StyledAuthWrapper>
         <h2 data-testid="title">{modeText}</h2>
+        <section>
+          <h4>이메일</h4>
+          <AuthEmailForm />
+        </section>
+        <section>
+          <h4>비밀번호</h4>
+          <AuthPasswordForm />
+        </section>
       </StyledAuthWrapper>
       <StyledAuthFoot>
         <span>
