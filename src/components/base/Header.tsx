@@ -36,6 +36,7 @@ const StyledLogo = styled.h4`
 const StyledMenuList = styled.div`
   display: flex;
   color:#000;
+  font-size:0.9rem;
   div {
     cursor: pointer;
   }
