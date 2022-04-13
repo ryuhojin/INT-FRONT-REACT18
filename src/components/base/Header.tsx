@@ -27,7 +27,7 @@ const StyledContainer = styled.div`
 
 const StyledLogo = styled.h4`
   cursor: pointer;
-  color:#F67E7D;
+  color: #f67e7d;
   :hover {
     color: ${lighten(0.1, "#F67E7D")};
   }
@@ -35,8 +35,8 @@ const StyledLogo = styled.h4`
 
 const StyledMenuList = styled.div`
   display: flex;
-  color:#000;
-  font-size:0.9rem;
+  color: #000;
+  font-size: 0.9rem;
   div {
     cursor: pointer;
   }
@@ -48,16 +48,12 @@ const StyledMenuList = styled.div`
   }
 `;
 
-const Header = ({
-  onClickHomeBtn,
-}: {
-  onClickHomeBtn: React.ReactEventHandler<Element>;
-}) => {
+const Header = () => {
   return (
     <>
       <StyledHeader>
         <StyledContainer>
-          <StyledLogo onClick={onClickHomeBtn}>NOTWORKING</StyledLogo>
+          <StyledLogo>NOTWORKING</StyledLogo>
           <StyledMenuList>
             <div>로그인</div>
           </StyledMenuList>

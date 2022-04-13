@@ -1,5 +1,5 @@
-import { lighten } from "polished";
 import styled from "styled-components";
+import Header from "../base/Header";
 
 const StyledBaseTemplate = styled.div`
   height: 100%;
@@ -22,14 +22,14 @@ const StyledContentTemplate = styled.div`
 
 const BaseTemplate = ({
   children,
-  header,
 }: {
   children: JSX.Element | JSX.Element[];
-  header: JSX.Element;
 }) => {
   return (
     <StyledBaseTemplate>
-      <StyledHeaderTemplate>{header}</StyledHeaderTemplate>
+      <StyledHeaderTemplate>
+        <Header />
+      </StyledHeaderTemplate>
       <StyledContentTemplate>{children}</StyledContentTemplate>
     </StyledBaseTemplate>
   );
