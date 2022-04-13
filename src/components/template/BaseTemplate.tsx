@@ -1,3 +1,4 @@
+import { memo } from "react";
 import styled from "styled-components";
 import Header from "../base/Header";
 
@@ -34,4 +35,4 @@ const BaseTemplate = ({
     </StyledBaseTemplate>
   );
 };
-export default BaseTemplate;
+export default memo(BaseTemplate);

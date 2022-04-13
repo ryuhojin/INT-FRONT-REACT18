@@ -1,10 +1,19 @@
 import { Helmet } from "react-helmet-async";
 import { Route, Routes } from "react-router-dom";
-import { lazy, Suspense } from "react";
+import loadable from "@loadable/component";
+
+import Core from "./containers/base/Core";
 import BaseTemplate from "@/components/template/BaseTemplate";
 
-const Home = lazy(() => import("@/pages/Home"));
+import { Home } from "@/pages";
 
+const loadableConfig = {
+  fallback: (
+    <BaseTemplate>
+      <></>
+    </BaseTemplate>
+  ),
+};
 const Root = () => {
   return (
     <>
@@ -17,21 +26,10 @@ const Root = () => {
       </Helmet>
 
       <Routes>
-        <Route
-          path="/"
-          element={
-            <Suspense
-              fallback={
-                <BaseTemplate>
-                  <></>
-                </BaseTemplate>
-              }
-            >
-              <Home />
-            </Suspense>
-          }
-        />
+        <Route path="/" element={<Home />} />
       </Routes>
+      
+      <Core />
     </>
   );
 };
