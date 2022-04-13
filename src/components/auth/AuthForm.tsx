@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 import { media } from "@/libs/styles";
-import { AuthEmailForm, AuthPasswordForm } from "./form";
+import { AuthButton, AuthEmailForm, AuthPasswordForm } from "./form";
 
 const StyledAuthForm = styled.div`
   display: flex;
@@ -27,6 +27,15 @@ const StyledAuthWrapper = styled.div`
     margin-top: 1rem;
     margin-bottom: 1rem;
     color: #acacac;
+  }
+  p {
+    color: #ececec;
+    text-align: center;
+    font-size: 0.9rem;
+    cursor: pointer;
+    &:hover {
+      color: #f67e7d;
+    }
   }
 `;
 const StyledAuthFoot = styled.div`
@@ -69,6 +78,8 @@ const AuthForm: React.FC<AuthFormProps> = ({ mode }) => {
           <h4>비밀번호</h4>
           <AuthPasswordForm />
         </section>
+        <AuthButton />
+        <p>Github로 로그인하기</p>
       </StyledAuthWrapper>
       <StyledAuthFoot>
         <span>

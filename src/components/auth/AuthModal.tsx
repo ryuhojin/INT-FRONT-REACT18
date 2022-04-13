@@ -18,7 +18,7 @@ const StyledAuthModal = styled.div`
 
 const StyledAuthModalWrapper = styled.div<{ visible: boolean }>`
   width: 606px;
-  height: 480px;
+  height: 550px;
   box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.09);
   display: flex;
   ${media.small} {

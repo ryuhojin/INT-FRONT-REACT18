@@ -4,15 +4,16 @@ import "./styles/main.scss";
 import { BrowserRouter } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
 import { RecoilRoot } from "recoil";
-//TODO : Recoil Update For TypeScript
+
 const container = document.getElementById("root");
 const root = createRoot(container as Element);
+
 root.render(
   <HelmetProvider>
-    {/* <RecoilRoot> */}
+    <RecoilRoot>
       <BrowserRouter>
         <Root />
       </BrowserRouter>
-    {/* </RecoilRoot> */}
+    </RecoilRoot>
   </HelmetProvider>
 );
