@@ -1,14 +1,14 @@
 import { atom } from "recoil";
 
 const layerAtom = atom({
-  key: "layer",
+  key: "layerAtom",
   default: {
     layer: false,
   },
 });
 
 const authAtom = atom({
-  key: "auth",
+  key: "authAtom",
   default: {
     views: false,
     mode: "LOGIN",

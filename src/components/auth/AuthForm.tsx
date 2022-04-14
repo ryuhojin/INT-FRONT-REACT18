@@ -25,7 +25,7 @@ const StyledAuthWrapper = styled.div`
     margin: 0;
   }
   h2 {
-    font-size: 1.3125rem;
+    font-size: 1.125rem;
     color: #ececec;
   }
   h4 {

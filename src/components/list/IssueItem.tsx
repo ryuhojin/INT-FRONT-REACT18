@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { AiOutlineComment, AiOutlineLike, AiOutlineEye } from "react-icons/ai";
-import { lighten } from "polished";
+import { media } from "@/libs/styles";
 
 const StyledIssueItem = styled.div`
   margin-left: 0.5rem;
@@ -8,7 +8,7 @@ const StyledIssueItem = styled.div`
   border-radius: 5px;
   background: #fff;
   border: 1px solid #ddd;
-  @media only screen and (max-width: 768px) {
+  ${media.small}{
     margin-left: 0rem;
     margin-right: 0rem;
     border-radius: 0px;
@@ -19,7 +19,7 @@ const StyledIssueItem = styled.div`
 `;
 const StyledIssuCategoryContainer = styled.div`
   padding: 0.8rem;
-  @media only screen and (max-width: 768px) {
+  ${media.small} {
     font-size: 0.8rem;
   }
 `;
@@ -38,7 +38,7 @@ const StyledIssueCategoryTitle = styled.span`
   text-overflow: ellipsis;
   font-size: 1rem;
   font-weight: 500;
-  @media only screen and (max-width: 768px) {
+  ${media.small} {
     font-size: 0.8rem;
   }
 `;
@@ -48,7 +48,7 @@ const StyledIssueCategorySolve = styled.span`
   background: #c8f2cc;
   color: #000;
   font-size: 0.9rem;
-  @media only screen and (max-width: 768px) {
+  ${media.small} {
     font-size: 0.7rem;
   }
 `;
@@ -66,7 +66,7 @@ const StyledIssueDate = styled.p`
   text-align: center;
   font-size: 0.9rem;
   color: #666;
-  @media only screen and (max-width: 768px) {
+  ${media.small} {
     font-size: 0.7rem;
   }
 `;
@@ -76,7 +76,7 @@ const StyledIssueUser = styled.p`
   display: flex;
   justify-content: space-between;
   font-size: 0.9rem;
-  @media only screen and (max-width: 768px) {
+  ${media.small} {
     font-size: 0.7rem;
   }
 `;

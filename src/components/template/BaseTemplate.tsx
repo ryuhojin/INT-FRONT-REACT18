@@ -1,6 +1,7 @@
 import HeaderContainer from "@/containers/base/HeaderContainer";
 import { memo } from "react";
 import styled from "styled-components";
+import { media } from "@/libs/styles";
 
 const StyledBaseTemplate = styled.div`
   height: 100%;
@@ -16,7 +17,7 @@ const StyledContentTemplate = styled.div`
   width: 768px;
   margin-left: auto;
   margin-right: auto;
-  @media only screen and (max-width: 768px) {
+  ${media.small} {
     width: 100%;
   }
 `;

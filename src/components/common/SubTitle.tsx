@@ -1,9 +1,10 @@
+import { media } from "@/libs/styles";
 import styled from "styled-components";
 
 const StyledSubTitle = styled.h4`
   margin:1rem;
   text-align: center;
-  @media only screen and (max-width: 768px) {
+  ${media.small} {
     text-align: left;
   }
 `;

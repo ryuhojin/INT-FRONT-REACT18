@@ -1,20 +1,21 @@
-import { darken, lighten } from "polished";
+import { lighten } from "polished";
 import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import { media } from "@/libs/styles";
 
 const StyledHeader = styled.div`
   width: 1728px;
   margin-left: auto;
   font-size: 1.125rem;
   margin-right: auto;
-  @media only screen and (max-width: 1919px) {
+  ${media.xxlarge} {
     width: 1376px;
   }
-  @media only screen and (max-width: 1440px) {
+  ${media.xlarge} {
     width: 1024px;
   }
-  @media only screen and (max-width: 1056px) {
+  ${media.medium} {
     width: calc(100% - 2rem);
   }
   a {
