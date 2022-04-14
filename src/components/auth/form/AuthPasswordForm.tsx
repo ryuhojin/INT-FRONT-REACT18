@@ -36,7 +36,7 @@ interface AuthPasswordFormProps {
 const AuthPasswordForm: React.FC<AuthPasswordFormProps> = ({ mode }) => {
   return (
     <StyledAuthPasswordForm mode={mode}>
-      <input type="password" placeholder="비밀번호를 입력해주세욘"/>
+      <input type="password" placeholder="비밀번호를 입력해주세요"/>
     </StyledAuthPasswordForm>
   );
 };

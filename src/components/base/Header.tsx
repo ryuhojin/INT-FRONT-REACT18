@@ -1,5 +1,6 @@
 import { darken, lighten } from "polished";
 import React from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 const StyledHeader = styled.div`
@@ -15,6 +16,9 @@ const StyledHeader = styled.div`
   }
   @media only screen and (max-width: 1056px) {
     width: calc(100% - 2rem);
+  }
+  a {
+    text-decoration: none;
   }
 `;
 
@@ -55,7 +59,9 @@ const Header: React.FC<HeaderProps> = ({ onOpen }) => {
     <>
       <StyledHeader>
         <StyledContainer>
-          <StyledLogo>NOTWORKING</StyledLogo>
+          <Link to="/">
+            <StyledLogo>NOTWORKING</StyledLogo>
+          </Link>
           <StyledMenuList>
             <div onClick={onOpen}>로그인</div>
           </StyledMenuList>

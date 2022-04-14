@@ -26,7 +26,7 @@ const StyledAuthNameForm = styled.div`
 const AuthNameForm = () => {
   return (
     <StyledAuthNameForm>
-      <input type="text" />
+      <input type="text" placeholder="닉네임을 입력해주세요" />
     </StyledAuthNameForm>
   );
 };
