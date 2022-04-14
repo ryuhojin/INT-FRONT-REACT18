@@ -45,7 +45,7 @@ const StyledIssueCategoryTitle = styled.span`
 const StyledIssueCategorySolve = styled.span`
   padding: 0.2rem 0.4rem;
   border-radius: 5px;
-  background: ${lighten(0.1, "#9ee9a6")};
+  background: #c8f2cc;
   color: #000;
   font-size: 0.9rem;
   @media only screen and (max-width: 768px) {

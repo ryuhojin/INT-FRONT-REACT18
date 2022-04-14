@@ -1,7 +1,12 @@
 import styled from "styled-components";
 
 import { media } from "@/libs/styles";
-import { AuthButton, AuthEmailForm, AuthPasswordForm } from "./form";
+import {
+  AuthButton,
+  AuthEmailForm,
+  AuthNameForm,
+  AuthPasswordForm,
+} from "./form";
 
 const StyledAuthForm = styled.div`
   display: flex;
@@ -73,14 +78,22 @@ const AuthForm: React.FC<AuthFormProps> = ({ mode, onToggle }) => {
         <h2 data-testid="title">{modeText}</h2>
         <section>
           <h4>이메일</h4>
-          <AuthEmailForm />
+          <AuthEmailForm mode={mode} />
         </section>
         <section>
           <h4>비밀번호</h4>
-          <AuthPasswordForm />
+          <AuthPasswordForm mode={mode} />
         </section>
-        <AuthButton />
-        <p>Github로 로그인하기</p>
+        {mode === "REGISTER" ? (
+          <section>
+            <h4>이름</h4>
+            <AuthNameForm />
+          </section>
+        ) : (
+          <></>
+        )}
+        <AuthButton mode={mode} />
+        {mode === "LOGIN" ? <p>Github로 로그인하기</p> : <></>}
       </StyledAuthWrapper>
       <StyledAuthFoot>
         <span>

@@ -1,27 +1,41 @@
 import { lighten } from "polished";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
-const StyledAuthButton = styled.div`
+const StyledAuthButton = styled.div<{ mode: string }>`
   width: 100%;
   margin-top: 2rem;
   display: flex;
   height: 3rem;
   button {
     flex: 1;
-    background: #f67e7d;
     outline: none;
     border: none;
     cursor: pointer;
     font-weight: bold;
-    &:hover {
-      background: ${lighten(0.1, "#f67e7d")};
-    }
+
+    ${(props) =>
+      props.mode === "LOGIN"
+        ? css`
+            background: #f67e7d;
+            &:hover {
+              background: ${lighten(0.1, "#f67e7d")};
+            }
+          `
+        : css`
+            background: #c8f2cc;
+            &:hover {
+              background: ${lighten(0.1, "#c8f2cc")};
+            }
+          `}
   }
 `;
-const AuthButton = () => {
+interface AuthButtonProps {
+  mode: string;
+}
+const AuthButton: React.FC<AuthButtonProps> = ({ mode }) => {
   return (
-    <StyledAuthButton>
-      <button>로그인</button>
+    <StyledAuthButton mode={mode}>
+      <button>{mode === "LOGIN" ? "로그인" : "회원가입"}</button>
     </StyledAuthButton>
   );
 };
