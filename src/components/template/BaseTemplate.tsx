@@ -1,6 +1,6 @@
+import HeaderContainer from "@/containers/base/HeaderContainer";
 import { memo } from "react";
 import styled from "styled-components";
-import Header from "../base/Header";
 
 const StyledBaseTemplate = styled.div`
   height: 100%;
@@ -29,7 +29,7 @@ const BaseTemplate = ({
   return (
     <StyledBaseTemplate>
       <StyledHeaderTemplate>
-        <Header />
+        <HeaderContainer />
       </StyledHeaderTemplate>
       <StyledContentTemplate>{children}</StyledContentTemplate>
     </StyledBaseTemplate>

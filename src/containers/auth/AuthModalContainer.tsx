@@ -1,12 +1,18 @@
 import { AuthForm, AuthModal } from "@/components/auth";
 import { useCallback } from "react";
-
+import {
+  stateAuthModal,
+  closeAuthModal,
+  modeAuthModal,
+} from "@/store/modules/modal";
 const AuthModalContainer = () => {
-  const onClose = useCallback(() => {}, []);
+  const state = stateAuthModal();
+  const onClose = closeAuthModal();
+  const onToggle = modeAuthModal();
 
   return (
-    <AuthModal visible={true} onClose={onClose}>
-      <AuthForm mode="LOGIN" />
+    <AuthModal visible={state.views} onClose={onClose}>
+      <AuthForm mode={state.mode} onToggle={onToggle} />
     </AuthModal>
   );
 };

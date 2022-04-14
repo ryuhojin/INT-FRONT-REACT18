@@ -32,6 +32,7 @@ const BackLayer: React.FC<BackLayerProps> = ({ visible }) => {
       document.body.style.overflowY = "initital";
     };
   }, []);
+  if (!visible) return null;
   return <StyledBackLayer visible={visible} />;
 };
 export default BackLayer;

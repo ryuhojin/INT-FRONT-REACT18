@@ -2,7 +2,7 @@ import { Helmet } from "react-helmet-async";
 import { Route, Routes } from "react-router-dom";
 import loadable from "@loadable/component";
 
-import Core from "./containers/base/Core";
+import Core from "@/containers/base/Core";
 import BaseTemplate from "@/components/template/BaseTemplate";
 
 import { Home } from "@/pages";
@@ -28,7 +28,7 @@ const Root = () => {
       <Routes>
         <Route path="/" element={<Home />} />
       </Routes>
-      
+
       <Core />
     </>
   );

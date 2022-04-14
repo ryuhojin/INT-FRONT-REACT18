@@ -61,9 +61,10 @@ const StyledAuthFoot = styled.div`
 `;
 
 interface AuthFormProps {
-  mode: "REGISTER" | "LOGIN";
+  mode: string;
+  onToggle: () => void;
 }
-const AuthForm: React.FC<AuthFormProps> = ({ mode }) => {
+const AuthForm: React.FC<AuthFormProps> = ({ mode, onToggle }) => {
   const modeText = mode === "REGISTER" ? "회원가입" : "로그인";
 
   return (
@@ -87,7 +88,12 @@ const AuthForm: React.FC<AuthFormProps> = ({ mode }) => {
             ? "아직 회원이 아니신가요?"
             : "계정이 이미 있으신가요?"}
         </span>
-        <div className="link" tabIndex={7} data-testid="switchmode">
+        <div
+          className="link"
+          tabIndex={7}
+          data-testid="switchmode"
+          onClick={onToggle}
+        >
           {mode === "LOGIN" ? "회원가입" : "로그인"}
         </div>
       </StyledAuthFoot>

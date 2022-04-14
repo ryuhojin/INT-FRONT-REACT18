@@ -47,15 +47,17 @@ const StyledMenuList = styled.div`
     margin-left: 1rem;
   }
 `;
-
-const Header = () => {
+interface HeaderProps {
+  onOpen: () => void;
+}
+const Header: React.FC<HeaderProps> = ({ onOpen }) => {
   return (
     <>
       <StyledHeader>
         <StyledContainer>
           <StyledLogo>NOTWORKING</StyledLogo>
           <StyledMenuList>
-            <div>로그인</div>
+            <div onClick={onOpen}>로그인</div>
           </StyledMenuList>
         </StyledContainer>
       </StyledHeader>
