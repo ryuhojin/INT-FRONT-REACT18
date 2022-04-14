@@ -32,6 +32,10 @@ const StyledUser = styled.div`
     font-size: 1rem;
     color: #444;
   }
+  hr {
+    border: 1px solid #e1e1e1;
+    margin: 2rem 0 1rem 0;
+  }
 `;
 const StyleUserHeader = styled.div`
   display: flex;
@@ -64,7 +68,7 @@ const StyleUserHeaderItem = styled.div`
   }
 `;
 const StyleUserBtnGroup = styled.div`
-  margin-top: 2.5rem;
+  margin-top: 1rem;
   text-align: right;
   span {
     cursor: pointer;
@@ -105,6 +109,7 @@ const User = () => {
           </div>
         </StyleUserHeaderItem>
       </StyleUserHeader>
+      <hr />
       <section>
         <h4>아이디</h4>
         <h5>interarea@naver.com</h5>
@@ -128,6 +133,7 @@ const User = () => {
           내가돈이 많겠니? 장기하 노래 좋다 좋아
         </h5>
       </section>
+      <hr/>
       <StyleUserBtnGroup>
         <span className="update">수정하기</span>
         <span className="delete">탈퇴하기</span>
