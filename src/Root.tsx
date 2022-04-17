@@ -15,6 +15,7 @@ const loadableConfig = {
   ),
 };
 const User = loadable(() => import("@/pages/UserPage"), loadableConfig);
+const Write = loadable(() => import("@/pages/WritePage"), loadableConfig);
 
 const Root = () => {
   return (
@@ -30,6 +31,7 @@ const Root = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/user" element={<User />} />
+        <Route path="/write" element={<Write />} />
       </Routes>
 
       <Core />

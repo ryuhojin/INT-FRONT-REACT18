@@ -1,9 +1,10 @@
-import IssueList from "@/components/list/IssueList";
 import BaseTemplate from "@/components/template/BaseTemplate";
+import IssueListContainer from "@/containers/list/IssueListContainer";
+
 const HomePage = () => {
   return (
     <BaseTemplate>
-      <IssueList/>
+      <IssueListContainer/>
     </BaseTemplate>
   );
 };

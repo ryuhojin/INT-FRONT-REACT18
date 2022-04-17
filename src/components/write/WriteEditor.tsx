@@ -4,7 +4,15 @@ import { basicSetup } from "@codemirror/basic-setup";
 import { EditorState } from "@codemirror/state";
 import { EditorView } from "@codemirror/view";
 import { markdown } from "@codemirror/lang-markdown";
-const StyledWriteEidtor = styled.div``;
+const StyledWriteEidtor = styled.div`
+  margin-top:3rem;
+  background:#fff;
+  height:400px;
+  overflow: auto;
+  .cm-gutters {
+    display: none;
+  }
+`;
 
 const WriteEditor = () => {
   const editor = useRef();
