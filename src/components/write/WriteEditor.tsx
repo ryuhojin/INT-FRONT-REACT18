@@ -22,6 +22,9 @@ const StyledWriteEidtor = styled.div`
   .cm-gutters {
     display: none;
   }
+  .ͼ1.cm-editor.cm-focused {
+    outline: none;
+  }
   .cm-content {
     white-space: normal;
     word-wrap: break-word;

@@ -17,7 +17,7 @@ const StyledUpBtn = styled.div`
   background: #f67e7d;
   &:hover {
     background: ${lighten(0.1, "#f67e7d")};
-    color: #0a0a0a;
+    color: #444;
   }
 `;
 
