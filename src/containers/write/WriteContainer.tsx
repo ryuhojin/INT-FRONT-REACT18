@@ -1,6 +1,6 @@
-import WriteEditor from "@/components/write/WriteEditor";
+import WritePanel from "@/components/write/WritePanel";
 
 const WriteContainer = () => {
-  return <WriteEditor />;
+  return <WritePanel />;
 };
 export default WriteContainer;
