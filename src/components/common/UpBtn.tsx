@@ -14,9 +14,9 @@ const StyledUpBtn = styled.div`
   border-radius: 50%;
   cursor: pointer;
   color: #fff;
-  background: #f9adad;
+  background: #f67e7d;
   &:hover {
-    background: ${lighten(0.1, "#f9adad")};
+    background: ${lighten(0.1, "#f67e7d")};
     color: #0a0a0a;
   }
 `;

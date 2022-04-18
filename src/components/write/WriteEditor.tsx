@@ -5,12 +5,17 @@ import { EditorState } from "@codemirror/state";
 import { EditorView } from "@codemirror/view";
 import { markdown } from "@codemirror/lang-markdown";
 const StyledWriteEidtor = styled.div`
-  margin-top:3rem;
-  background:#fff;
-  height:400px;
+  margin-top: 3rem;
+  background: #fff;
+  height: 400px;
   overflow: auto;
   .cm-gutters {
     display: none;
+  }
+  .cm-content {
+    white-space: normal;
+    word-wrap: break-word;
+    width: -webkit-fill-available;
   }
 `;
 
