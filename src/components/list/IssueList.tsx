@@ -14,7 +14,7 @@ const IssueList = () => {
   return (
     <>
       <StyledIssueList>
-        <SubTitle />
+        <SubTitle name={"리스트"}/>
         <Search />
         <IssueAdd />
         <StyledIssueItemList>
