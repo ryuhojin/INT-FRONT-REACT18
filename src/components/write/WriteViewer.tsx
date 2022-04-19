@@ -127,11 +127,7 @@ const StyleWriteViewer = styled.div<{ mode: string }>`
   }
 
   hr {
-    background: transparent url("../../images/modules/pulls/dirty-shade.png")
-      repeat-x 0 0;
-    border: 0 none;
-    color: #cccccc;
-    height: 4px;
+    border: 1px solid #ccc;
     padding: 0;
   }
 

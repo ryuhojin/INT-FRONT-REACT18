@@ -84,27 +84,4 @@ const WriteEditor = React.forwardRef(
     );
   }
 );
-// interface WriteEditorProps {
-//   mode: string;
-//   editorRef: React.MutableRefObject<any>;
-//   text: string;
-// }
-
-// const WriteEditor: React.FC<WriteEditorProps> = ({ mode, editorRef, text }) => {
-//   const editorViewRefInternal = useRef();
-//   const containerRef = useRef();
-
-//   useEffect(() => {
-
-//     return ()=>{
-
-//     }
-//   }, []);
-
-//   return (
-//     <StyledWriteEidtor mode={mode}>
-//       <div ref={editorRef} />
-//     </StyledWriteEidtor>
-//   );
-// };
 export default WriteEditor;

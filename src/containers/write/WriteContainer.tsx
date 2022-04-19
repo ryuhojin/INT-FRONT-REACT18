@@ -14,7 +14,7 @@ const WriteContainer = () => {
   const onChangeText = useCallback(() => {
     setText(editorRef.current.getValue());
   }, []);
-  
+
   return (
     <WritePanel
       text={text}

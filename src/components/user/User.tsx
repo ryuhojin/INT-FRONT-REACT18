@@ -1,5 +1,5 @@
 import { media } from "@/libs/styles";
-import { darken } from "polished";
+import { darken, lighten } from "polished";
 import styled from "styled-components";
 
 const StyledUser = styled.div`
@@ -77,9 +77,13 @@ const StyleUserBtnGroup = styled.div`
     margin-left: 1.2rem;
   }
   .update {
-    color: ${darken(0.5, "#c8f2cc")};
+    background: #f67e7d;
+    color: #fff;
+    padding: 0.5rem;
+    border-radius: 5px;
     :hover {
-      color: ${darken(0.3, "#c8f2cc")};
+      background: ${lighten(0.1, "#f67e7d")};
+      color: #444;
     }
   }
   .delete {
@@ -133,7 +137,7 @@ const User = () => {
           내가돈이 많겠니? 장기하 노래 좋다 좋아
         </h5>
       </section>
-      <hr/>
+      <hr />
       <StyleUserBtnGroup>
         <span className="update">수정하기</span>
         <span className="delete">탈퇴하기</span>
