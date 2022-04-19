@@ -1,7 +1,7 @@
 import { media } from "@/libs/styles";
 import { lighten } from "polished";
 import styled from "styled-components";
-import { WriteTitle, WriteEditor, WriteSwitch } from ".";
+import { WriteTitle, WriteEditor, WriteSwitch, WriteViewer } from ".";
 import { SubTitle } from "../common";
 
 const StyledWritePanel = styled.div`
@@ -30,14 +30,32 @@ const WriteBtn = styled.div`
     border-radius: 0%;
   }
 `;
-interface WritePanelProps {}
-const WritePanel: React.FC<WritePanelProps> = ({}) => {
+interface WritePanelProps {
+  mode: string;
+  text: string;
+  editorRef: React.MutableRefObject<any>;
+  onChangeMode: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  onChangeText: () => void;
+}
+const WritePanel: React.FC<WritePanelProps> = ({
+  mode,
+  text,
+  editorRef,
+  onChangeMode,
+  onChangeText,
+}) => {
   return (
     <StyledWritePanel>
       <SubTitle name={"이슈 등록"} />
       <WriteTitle />
-      <WriteSwitch />
-      <WriteEditor />
+      <WriteSwitch mode={mode} onChangeMode={onChangeMode} />
+      <WriteEditor
+        onChange={onChangeText}
+        initialValue={text}
+        ref={editorRef}
+        mode={mode}
+      />
+      <WriteViewer value={text} mode={mode} />
       <WriteBtn>이슈 등록</WriteBtn>
     </StyledWritePanel>
   );

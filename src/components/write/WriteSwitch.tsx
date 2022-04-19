@@ -74,18 +74,20 @@ const StyledWriteSwitch = styled.div`
     border-radius: 50%;
   }
 `;
-const WriteSwitch = () => {
-  return (
-    <StyledWriteSwitch>
-      <span>내용</span>
-      <span>
-        미리보기
-        <label className="switch">
-          <input type="checkbox" />
-          <span className="slider round"></span>
-        </label>
-      </span>
-    </StyledWriteSwitch>
-  );
-};
+interface WriteSwitchProps {
+  mode: string;
+  onChangeMode: (e: React.ChangeEvent<HTMLInputElement>) => void;
+}
+const WriteSwitch: React.FC<WriteSwitchProps> = ({ mode, onChangeMode }) => (
+  <StyledWriteSwitch>
+    <span> 내용 </span>
+    <span>
+      {mode === "WRITER" ? "미리보기" : "작성하기"}
+      <label className="switch">
+        <input type="checkbox" onChange={onChangeMode} />
+        <span className="slider round"></span>
+      </label>
+    </span>
+  </StyledWriteSwitch>
+);
 export default WriteSwitch;
