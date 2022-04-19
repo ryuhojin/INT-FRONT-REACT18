@@ -1,8 +1,19 @@
+import { useEffect } from "react";
+import { useInfiniteQuery } from "react-query";
+import { useRecoilState, useRecoilValue } from "recoil";
+
+import { searchAtom, listStatusAtom } from "..";
+
 import { selectAllIssue } from "@/libs/api/modules/issueApi";
 import useDebounce from "@/libs/hooks/useDebounce";
-import { useInfiniteQuery } from "react-query";
-import { useRecoilValue } from "recoil";
-import { searchAtom, listStatusAtom } from "..";
+
+const refreshListStatus = () => {
+  const [status, setStatus] = useRecoilState(listStatusAtom);
+  return useEffect(() => {
+    if (!status) return;
+    setStatus(false);
+  });
+};
 
 const useSelectAllIssue = () => {
   const search = useRecoilValue(searchAtom);
@@ -27,4 +38,4 @@ const useSelectAllIssue = () => {
   );
 };
 
-export default useSelectAllIssue;
+export { refreshListStatus, useSelectAllIssue };

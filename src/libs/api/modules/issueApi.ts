@@ -18,6 +18,7 @@ interface issueParams {
   title: string;
   content: string;
   docType: string;
+  category: string;
   hashtags: [];
 }
 const createIssue = async (params: issueParams) => {
