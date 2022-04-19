@@ -1,5 +1,5 @@
 import Header from "@/components/base/Header";
-import { openAuthModal } from "@/store/modules/modal";
+import { openAuthModal } from "@/libs/store/modules/modal";
 
 const HeaderContainer = () => {
   const onOpen = openAuthModal();

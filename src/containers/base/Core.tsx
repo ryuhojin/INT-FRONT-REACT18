@@ -1,6 +1,6 @@
 import BackLayer from "@/components/common/BackLayer";
 import AuthModalContainer from "../auth/AuthModalContainer";
-import { stateBaseLayer } from "@/store/modules/modal";
+import { stateBaseLayer } from "@/libs/store/modules/modal";
 const Core = () => {
   const state = stateBaseLayer();
   return (

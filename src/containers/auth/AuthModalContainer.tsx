@@ -4,7 +4,7 @@ import {
   stateAuthModal,
   closeAuthModal,
   modeAuthModal,
-} from "@/store/modules/modal";
+} from "@/libs/store/modules/modal";
 const AuthModalContainer = () => {
   const state = stateAuthModal();
   const onClose = closeAuthModal();
