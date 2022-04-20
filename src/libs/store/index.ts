@@ -21,10 +21,13 @@ const authAtom = atom({
 const formAtom = atom({
   key: "formAtom",
   default: {
-    username: "",
+    email: "",
     password: "",
     name: "",
     message: "",
+    emailCert: "",
+    isSendCert: false,
+    isCert: false,
   },
 });
 

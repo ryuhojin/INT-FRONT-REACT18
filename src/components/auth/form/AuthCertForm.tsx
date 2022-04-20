@@ -1,14 +1,14 @@
 import { lighten } from "polished";
 import styled, { css } from "styled-components";
 
-const StyledAuthEmailForm = styled.div<{ mode: string }>`
+const StyledAuthCertForm = styled.div<{ mode: string }>`
   width: 100%;
   display: flex;
   height: 3rem;
   input {
     flex: 1;
     font-size: 1rem;
-    padding: 1rem;
+    padding: 0.5rem;
     outline: none;
     background: #1e1e1e;
     color: #fff;
@@ -43,40 +43,34 @@ const StyledAuthEmailForm = styled.div<{ mode: string }>`
     &:disabled {
       background: #f1f3f5;
       color: #ced4da;
-      cursor: none;
+      cursor: default;
     }
   }
 `;
-interface AuthEmailFormProps {
+interface AuthCertFormProps {
   mode: string;
   value: string;
-  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   btnValue: boolean;
-  isCert: boolean;
   onClick: () => void;
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
-const AuthEmailForm: React.FC<AuthEmailFormProps> = ({
+
+const AuthCertForm: React.FC<AuthCertFormProps> = ({
   mode,
   value,
   onChange,
-  btnValue,
-  isCert,
   onClick,
 }) => {
   return (
-    <StyledAuthEmailForm mode={mode}>
+    <StyledAuthCertForm mode={mode}>
       <input
-        type="email"
-        placeholder="이메일을 입력해주세요"
+        type="text"
+        placeholder="인증번호를 입력해주세요"
         value={value}
         onChange={onChange}
       />
-      {mode === "REGISTER" && (
-        <button disabled={btnValue} onClick={onClick}>
-          {btnValue ? (isCert ? "인증완료" : "전송완료") : "메일인증"}
-        </button>
-      )}
-    </StyledAuthEmailForm>
+      {mode === "REGISTER" && <button onClick={onClick}>인증완료</button>}
+    </StyledAuthCertForm>
   );
 };
-export default AuthEmailForm;
+export default AuthCertForm;

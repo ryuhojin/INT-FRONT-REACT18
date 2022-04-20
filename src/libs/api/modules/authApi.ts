@@ -2,7 +2,7 @@ import service from "..";
 
 //로그인
 interface loginParams {
-  username: string;
+  email: string;
   password: string;
 }
 const loginUser = async (params: loginParams) => {
@@ -11,16 +11,25 @@ const loginUser = async (params: loginParams) => {
 
 // 회원가입
 interface registerParams {
-  userId: string;
+  email: string;
   password: string;
   name: string;
 }
 const registerUser = async (params: registerParams) => {
-  await service.post("developer", params);
+  const response = await service.post("developer", params);
+  if(response.status !== 200) return response;
   return await service.post("auth/login", {
-    username: params.userId,
+    username: params.email,
     password: params.password,
   });
+};
+//인증메일 발송
+const sendAuthEmail = async (email: string) => {
+  return await service.get(`auth/sendAuthMail/${email}`);
+};
+//인증메일 확인
+const checkAuthEmail = async (email: string, number: string) => {
+  return await service.get(`auth/checkAuthNum/${email}?authNum=${number}`);
 };
 
 //새로고침
@@ -45,4 +54,12 @@ const updateUser = async (params: updateUserParams) => {
   return await service.put("developer", params);
 };
 
-export { loginUser, registerUser, refreshUser, deleteUser, updateUser };
+export {
+  loginUser,
+  registerUser,
+  sendAuthEmail,
+  checkAuthEmail,
+  refreshUser,
+  deleteUser,
+  updateUser,
+};

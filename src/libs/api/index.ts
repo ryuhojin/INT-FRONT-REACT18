@@ -1,6 +1,6 @@
 import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
 
-const BASE_URL = "https://notworking-api.link/api/";
+const BASE_URL = "http://notworking-api.link/api/";
 
 const service: AxiosInstance = axios.create({
   baseURL: BASE_URL,

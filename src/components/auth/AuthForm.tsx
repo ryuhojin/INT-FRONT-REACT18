@@ -8,6 +8,7 @@ import {
   AuthPasswordForm,
 } from "./form";
 import { useAuthForm } from "@/libs/store/modules/modal";
+import AuthCertForm from "./form/AuthCertForm";
 
 const StyledAuthForm = styled.div`
   display: flex;
@@ -80,13 +81,19 @@ interface AuthFormProps {
 const AuthForm: React.FC<AuthFormProps> = ({ mode, onToggle, onSubmit }) => {
   const modeText = mode === "REGISTER" ? "회원가입" : "로그인";
   const {
-    username,
+    email,
+    emailCert,
+    isSendCert,
+    isCert,
     password,
     name,
     message,
-    setUsername,
+    setEmail,
+    setEmailCert,
     setPassword,
     setName,
+    setIsSendCert,
+    setIsCert
   } = useAuthForm();
 
   return (
@@ -95,8 +102,28 @@ const AuthForm: React.FC<AuthFormProps> = ({ mode, onToggle, onSubmit }) => {
         <h2 data-testid="title">{modeText}</h2>
         <section>
           <h4>이메일</h4>
-          <AuthEmailForm mode={mode} value={username} onChange={setUsername} />
+          <AuthEmailForm
+            mode={mode}
+            value={email}
+            onChange={setEmail}
+            btnValue={isSendCert}
+            isCert={isCert}
+            onClick={setIsSendCert}
+          />
         </section>
+        {mode === "REGISTER" && isSendCert && !isCert && (
+          <section>
+            <h4>인증번호</h4>
+            <AuthCertForm
+              mode={mode}
+              value={emailCert}
+              onChange={setEmailCert}
+              onClick={setIsCert}
+              btnValue={isCert}
+            />
+          </section>
+        )}
+
         <section>
           <h4>비밀번호</h4>
           <AuthPasswordForm
@@ -105,13 +132,11 @@ const AuthForm: React.FC<AuthFormProps> = ({ mode, onToggle, onSubmit }) => {
             onChange={setPassword}
           />
         </section>
-        {mode === "REGISTER" ? (
+        {mode === "REGISTER" && isSendCert && isCert && (
           <section>
             <h4>이름</h4>
             <AuthNameForm value={name} onChange={setName} />
           </section>
-        ) : (
-          <></>
         )}
         <AuthButton mode={mode} onClick={onSubmit} />
         {mode === "LOGIN" ? <p>Github로 로그인하기</p> : <></>}

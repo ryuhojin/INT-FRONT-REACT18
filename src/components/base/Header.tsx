@@ -3,6 +3,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { media } from "@/libs/styles";
+import useAuth from "@/libs/store/modules/auth";
 
 const StyledHeader = styled.div`
   width: 1728px;
@@ -56,6 +57,7 @@ interface HeaderProps {
   onOpen: () => void;
 }
 const Header: React.FC<HeaderProps> = ({ onOpen }) => {
+  const auth = useAuth();
   return (
     <>
       <StyledHeader>
@@ -64,7 +66,11 @@ const Header: React.FC<HeaderProps> = ({ onOpen }) => {
             <StyledLogo>NOTWORKING</StyledLogo>
           </Link>
           <StyledMenuList>
-            <div onClick={onOpen}>로그인</div>
+            {auth.isLoggedIn() ? (
+              <div>{auth.getInfo && auth.getInfo["name"]}님 반갑습니다.</div>
+            ) : (
+              <div onClick={onOpen}>로그인</div>
+            )}
           </StyledMenuList>
         </StyledContainer>
       </StyledHeader>
