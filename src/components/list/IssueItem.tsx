@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { AiOutlineComment, AiOutlineLike, AiOutlineEye } from "react-icons/ai";
 import { media } from "@/libs/styles";
 
@@ -8,11 +8,11 @@ const StyledIssueItem = styled.div`
   border-radius: 5px;
   background: #fff;
   border: 1px solid #ddd;
-  ${media.small}{
+  ${media.small} {
     margin-left: 0rem;
     margin-right: 0rem;
     border-radius: 0px;
-    border:0;
+    border: 0;
     border-top: 1px solid #ddd;
     border-bottom: 1px solid #ddd;
   }
@@ -42,15 +42,23 @@ const StyledIssueCategoryTitle = styled.span`
     font-size: 0.8rem;
   }
 `;
-const StyledIssueCategorySolve = styled.span`
+const StyledIssueCategorySolve = styled.span<{ solved: boolean }>`
   padding: 0.2rem 0.4rem;
   border-radius: 5px;
-  background: #c8f2cc;
   color: #000;
   font-size: 0.9rem;
   ${media.small} {
     font-size: 0.7rem;
   }
+  ${(props) => {
+    return props.solved
+      ? css`
+          background: #c8f2cc;
+        `
+      : css`
+          background: #e1e1e1;
+        `;
+  }}
 `;
 const StyledIssueContent = styled.p`
   font-weight: 400;
@@ -86,29 +94,32 @@ const StyledIssueUserInfo = styled.span`
   align-items: center;
 `;
 
-const IssueItem = () => {
+interface IssueItemProps {
+  value: any;
+}
+const IssueItem: React.FC<IssueItemProps> = ({ value }) => {
   return (
     <StyledIssueItem>
       <StyledIssuCategoryContainer>
         <StyledIssueCategory>
-          <StyledIssueCategoryTitle>
-            제목입니다.제목입니다
-          </StyledIssueCategoryTitle>
-          <StyledIssueCategorySolve>해결완료</StyledIssueCategorySolve>
+          <StyledIssueCategoryTitle>{value.title}</StyledIssueCategoryTitle>
+          <StyledIssueCategorySolve solved={value.adoptYn}>
+            {value.adoptYn ? "해결완료" : "미해결"}
+          </StyledIssueCategorySolve>
         </StyledIssueCategory>
         <StyledIssueContent>
-          내용입니다.내용입니다.내용입니다.내용입니다.내용입니다.내용입니다.내용입니다.내용입니다.내용입니다.내용입니다.내용입니다.내용입니다.내용입니다.내용입니다.내용입니다.
+          {value.content}
         </StyledIssueContent>
-        <StyledIssueDate>최종 수정일 : 2022-01-02 PM 03:22</StyledIssueDate>
+        <StyledIssueDate>{value.modifiedDate}</StyledIssueDate>
         <StyledIssueUser>
-          <StyledIssueUserName>류호진</StyledIssueUserName>
+          <StyledIssueUserName>{value.developer.name}</StyledIssueUserName>
           <StyledIssueUserInfo>
             <AiOutlineLike />
-            &nbsp;1&nbsp;
+            &nbsp;{value.recommendationCount}&nbsp;
             <AiOutlineEye />
-            &nbsp;7&nbsp;
+            &nbsp;{value.hits}&nbsp;
             <AiOutlineComment />
-            &nbsp;3
+            &nbsp;{value.solutionCount}
           </StyledIssueUserInfo>
         </StyledIssueUser>
       </StyledIssuCategoryContainer>

@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useCallback, useEffect } from "react";
 import { useInfiniteQuery } from "react-query";
 import { useRecoilState, useRecoilValue } from "recoil";
 
@@ -14,6 +14,8 @@ const refreshListStatus = () => {
     setStatus(false);
   });
 };
+
+const useSearchForSearch = () => useRecoilState(searchAtom);
 
 const useSelectAllIssue = () => {
   const search = useRecoilValue(searchAtom);
@@ -38,4 +40,4 @@ const useSelectAllIssue = () => {
   );
 };
 
-export { refreshListStatus, useSelectAllIssue };
+export { refreshListStatus, useSelectAllIssue, useSearchForSearch };

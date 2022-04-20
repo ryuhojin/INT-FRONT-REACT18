@@ -17,7 +17,6 @@ const useIntersectionObserver = ({
       { root: root && root.current, rootMargin, threshold }
     );
     const el = target && target.current;
-
     if (!el) return;
 
     observer.observe(el);

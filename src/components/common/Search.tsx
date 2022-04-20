@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { BsSortDown } from "react-icons/bs";
+import React from "react";
 const StyleSearchContainer = styled.div`
   display: flex;
   justify-content: space-between;
@@ -14,8 +15,8 @@ const StyleSearchContainer = styled.div`
   @media only screen and (max-width: 768px) {
     margin-left: 0rem;
     margin-right: 0rem;
-    border:0;
-    border-top:1px solid #ddd;
+    border: 0;
+    border-top: 1px solid #ddd;
     border-bottom: 1px solid #ddd;
   }
 `;
@@ -40,6 +41,7 @@ const StyledSort = styled.div`
     color: #f67e7d;
   }
 `;
+
 const Search = ({ ...rest }: any) => {
   return (
     <StyleSearchContainer>
