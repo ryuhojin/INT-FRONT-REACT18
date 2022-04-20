@@ -32,11 +32,22 @@ const StyledAuthPasswordForm = styled.div<{ mode: string }>`
 `;
 interface AuthPasswordFormProps {
   mode: string;
+  value: string;
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
-const AuthPasswordForm: React.FC<AuthPasswordFormProps> = ({ mode }) => {
+const AuthPasswordForm: React.FC<AuthPasswordFormProps> = ({
+  mode,
+  value,
+  onChange,
+}) => {
   return (
     <StyledAuthPasswordForm mode={mode}>
-      <input type="password" placeholder="비밀번호를 입력해주세요"/>
+      <input
+        type="password"
+        placeholder="비밀번호를 입력해주세요"
+        value={value}
+        onChange={onChange}
+      />
     </StyledAuthPasswordForm>
   );
 };

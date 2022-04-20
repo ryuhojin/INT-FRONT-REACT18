@@ -49,11 +49,22 @@ const StyledAuthEmailForm = styled.div<{ mode: string }>`
 `;
 interface AuthEmailFormProps {
   mode: string;
+  value: string;
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
-const AuthEmailForm: React.FC<AuthEmailFormProps> = ({ mode }) => {
+const AuthEmailForm: React.FC<AuthEmailFormProps> = ({
+  mode,
+  value,
+  onChange,
+}) => {
   return (
     <StyledAuthEmailForm mode={mode}>
-      <input type="email" placeholder="이메일을 입력해주세요" />
+      <input
+        type="email"
+        placeholder="이메일을 입력해주세요"
+        value={value}
+        onChange={onChange}
+      />
       {mode === "REGISTER" ? <button>메일인증</button> : <></>}
     </StyledAuthEmailForm>
   );

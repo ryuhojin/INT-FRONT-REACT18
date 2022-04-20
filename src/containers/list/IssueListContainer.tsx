@@ -1,7 +1,6 @@
 import UpBtn from "@/components/common/UpBtn";
 import { IssueList } from "@/components/list";
 import useIntersectionObserver from "@/libs/hooks/useIntersectionObserver";
-import { searchAtom } from "@/libs/store";
 import {
   refreshListStatus,
   useSelectAllIssue,

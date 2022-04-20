@@ -17,6 +17,23 @@ const authAtom = atom({
   },
 });
 
+//로그인 폼 정보(팝업 화면)
+const formAtom = atom({
+  key: "formAtom",
+  default: {
+    username: "",
+    password: "",
+    name: "",
+    message: "",
+  },
+});
+
+//로그인 후 회원정보(user)
+const userAtom = atom({
+  key: "userAtom",
+  default: null,
+});
+
 //검색(리스트 화면)
 const searchAtom = atom({
   key: "searchAtom",
@@ -29,4 +46,4 @@ const listStatusAtom = atom({
   default: false,
 });
 
-export { layerAtom, authAtom, searchAtom, listStatusAtom };
+export { layerAtom, authAtom, userAtom, formAtom, searchAtom, listStatusAtom };

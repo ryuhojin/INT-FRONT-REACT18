@@ -7,6 +7,7 @@ import {
   AuthNameForm,
   AuthPasswordForm,
 } from "./form";
+import { useAuthForm } from "@/libs/store/modules/modal";
 
 const StyledAuthForm = styled.div`
   display: flex;
@@ -42,6 +43,9 @@ const StyledAuthWrapper = styled.div`
       color: #f67e7d;
     }
   }
+  .errMsg {
+    color: #ff4c4c;
+  }
 `;
 const StyledAuthFoot = styled.div`
   ${media.small} {
@@ -64,13 +68,26 @@ const StyledAuthFoot = styled.div`
     }
   }
 `;
-
+const StyledErrorMessage = styled.p`
+  text-align: center;
+  color: #fe7676 !important;
+`;
 interface AuthFormProps {
   mode: string;
   onToggle: () => void;
+  onSubmit: () => void;
 }
-const AuthForm: React.FC<AuthFormProps> = ({ mode, onToggle }) => {
+const AuthForm: React.FC<AuthFormProps> = ({ mode, onToggle, onSubmit }) => {
   const modeText = mode === "REGISTER" ? "회원가입" : "로그인";
+  const {
+    username,
+    password,
+    name,
+    message,
+    setUsername,
+    setPassword,
+    setName,
+  } = useAuthForm();
 
   return (
     <StyledAuthForm>
@@ -78,22 +95,27 @@ const AuthForm: React.FC<AuthFormProps> = ({ mode, onToggle }) => {
         <h2 data-testid="title">{modeText}</h2>
         <section>
           <h4>이메일</h4>
-          <AuthEmailForm mode={mode} />
+          <AuthEmailForm mode={mode} value={username} onChange={setUsername} />
         </section>
         <section>
           <h4>비밀번호</h4>
-          <AuthPasswordForm mode={mode} />
+          <AuthPasswordForm
+            mode={mode}
+            value={password}
+            onChange={setPassword}
+          />
         </section>
         {mode === "REGISTER" ? (
           <section>
             <h4>이름</h4>
-            <AuthNameForm />
+            <AuthNameForm value={name} onChange={setName} />
           </section>
         ) : (
           <></>
         )}
-        <AuthButton mode={mode} />
+        <AuthButton mode={mode} onClick={onSubmit} />
         {mode === "LOGIN" ? <p>Github로 로그인하기</p> : <></>}
+        <p className="errMsg">{message}</p>
       </StyledAuthWrapper>
       <StyledAuthFoot>
         <span>

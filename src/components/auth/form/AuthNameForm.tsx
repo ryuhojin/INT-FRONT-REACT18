@@ -1,3 +1,4 @@
+import React from "react";
 import styled from "styled-components";
 
 const StyledAuthNameForm = styled.div`
@@ -23,10 +24,19 @@ const StyledAuthNameForm = styled.div`
     }
   }
 `;
-const AuthNameForm = () => {
+interface AuthNameFormProps {
+  value: string;
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+}
+const AuthNameForm: React.FC<AuthNameFormProps> = ({ value, onChange }) => {
   return (
     <StyledAuthNameForm>
-      <input type="text" placeholder="닉네임을 입력해주세요" />
+      <input
+        type="text"
+        placeholder="닉네임을 입력해주세요"
+        value={value}
+        onChange={onChange}
+      />
     </StyledAuthNameForm>
   );
 };

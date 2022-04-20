@@ -31,11 +31,14 @@ const StyledAuthButton = styled.div<{ mode: string }>`
 `;
 interface AuthButtonProps {
   mode: string;
+  onClick: () => void;
 }
-const AuthButton: React.FC<AuthButtonProps> = ({ mode }) => {
+const AuthButton: React.FC<AuthButtonProps> = ({ mode, onClick }) => {
   return (
     <StyledAuthButton mode={mode}>
-      <button>{mode === "LOGIN" ? "로그인" : "회원가입"}</button>
+      <button onClick={onClick}>
+        {mode === "LOGIN" ? "로그인" : "회원가입"}
+      </button>
     </StyledAuthButton>
   );
 };
