@@ -45,6 +45,12 @@ const StyledMenuList = styled.div`
   color: #000;
   height: 100%;
   font-size: 0.9rem;
+  .menu {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    cursor: pointer;
+  }
   .menu-group {
     display: flex;
     height: 100%;
@@ -79,7 +85,9 @@ const Header: React.FC<HeaderProps> = ({ onOpen }) => {
                 </div>
               </>
             ) : (
-              <div onClick={onOpen}>로그인</div>
+              <div className="menu" onClick={onOpen}>
+                로그인
+              </div>
             )}
           </StyledMenuList>
         </StyledContainer>
