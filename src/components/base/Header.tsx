@@ -41,16 +41,20 @@ const StyledLogo = styled.h4`
 
 const StyledMenuList = styled.div`
   display: flex;
+  align-items: center;
   color: #000;
+  height: 100%;
   font-size: 0.9rem;
-  div {
-    cursor: pointer;
-  }
-  div:hover {
-    color: ${lighten(0.1, "#000")};
-  }
-  div + div {
-    margin-left: 1rem;
+  .menu-group {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    div {
+      cursor: pointer;
+    }
+    div + div {
+      margin-left: 1rem;
+    }
   }
 `;
 interface HeaderProps {
@@ -58,6 +62,7 @@ interface HeaderProps {
 }
 const Header: React.FC<HeaderProps> = ({ onOpen }) => {
   const auth = useAuth();
+
   return (
     <>
       <StyledHeader>
@@ -67,7 +72,12 @@ const Header: React.FC<HeaderProps> = ({ onOpen }) => {
           </Link>
           <StyledMenuList>
             {auth.isLoggedIn() ? (
-              <div>{auth.getInfo && auth.getInfo["name"]}님 반갑습니다.</div>
+              <>
+                <div className="menu-group">
+                  <div>내정보</div>
+                  <div onClick={auth.signout}>로그아웃</div>
+                </div>
+              </>
             ) : (
               <div onClick={onOpen}>로그인</div>
             )}
