@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { Search, SubTitle } from "@/components/common";
 import { IssueAdd, IssueItem } from ".";
 import React, { Fragment } from "react";
+import useAuth from "@/libs/store/modules/auth";
 
 const StyledIssueList = styled.div``;
 const StyledIssueItemList = styled.div`
@@ -33,12 +34,13 @@ const IssueList: React.FC<IssueListProps> = ({
   isFetchingNextPage,
   data,
 }) => {
+  const auth = useAuth();
   return (
     <>
       <StyledIssueList>
         <SubTitle name={"리스트"} />
         <Search value={search} onChange={setSearch} />
-        <IssueAdd />
+        {auth.isLoggedIn() && <IssueAdd />}
         <StyledIssueItemList>
           {
             {

@@ -31,23 +31,29 @@ const WriteBtn = styled.div`
   }
 `;
 interface WritePanelProps {
+  title: string;
   mode: string;
   text: string;
   editorRef: React.MutableRefObject<any>;
   onChangeMode: (e: React.ChangeEvent<HTMLInputElement>) => void;
   onChangeText: () => void;
+  onChangeTitle: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  onClickWrite: () => void;
 }
 const WritePanel: React.FC<WritePanelProps> = ({
+  title,
   mode,
   text,
   editorRef,
   onChangeMode,
+  onChangeTitle,
   onChangeText,
+  onClickWrite,
 }) => {
   return (
     <StyledWritePanel>
       <SubTitle name={"이슈 등록"} />
-      <WriteTitle />
+      <WriteTitle title={title} onChangeTitle={onChangeTitle} />
       <WriteSwitch mode={mode} onChangeMode={onChangeMode} />
       <WriteEditor
         onChange={onChangeText}
@@ -56,7 +62,7 @@ const WritePanel: React.FC<WritePanelProps> = ({
         mode={mode}
       />
       <WriteViewer value={text} mode={mode} />
-      <WriteBtn>이슈 등록</WriteBtn>
+      <WriteBtn onClick={onClickWrite}>이슈 등록</WriteBtn>
     </StyledWritePanel>
   );
 };

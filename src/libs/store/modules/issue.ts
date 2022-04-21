@@ -4,8 +4,9 @@ import { useRecoilState, useRecoilValue } from "recoil";
 
 import { searchAtom, listStatusAtom } from "..";
 
-import { selectAllIssue } from "@/libs/api/modules/issueApi";
+import { createIssue, selectAllIssue } from "@/libs/api/modules/issueApi";
 import useDebounce from "@/libs/hooks/useDebounce";
+import { useNavigate } from "react-router-dom";
 
 const refreshListStatus = () => {
   const [status, setStatus] = useRecoilState(listStatusAtom);
@@ -40,4 +41,9 @@ const useSelectAllIssue = () => {
   );
 };
 
-export { refreshListStatus, useSelectAllIssue, useSearchForSearch };
+
+export {
+  refreshListStatus,
+  useSelectAllIssue,
+  useSearchForSearch,
+};
