@@ -20,7 +20,7 @@ const AuthModalContainer = () => {
   const onSubmit = async () => {
     const response =
       state.mode === "LOGIN"
-        ? await auth.signin({ username: email, password: password })
+        ? await auth.signin({ email: email, password: password })
         : isCert
         ? await auth.signup({
             email: email,

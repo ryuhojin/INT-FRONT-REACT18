@@ -108,7 +108,7 @@ const IssueItem: React.FC<IssueItemProps> = ({ value }) => {
           </StyledIssueCategorySolve>
         </StyledIssueCategory>
         <StyledIssueContent>
-          {value.content}
+          {value.content.replaceAll("```", "").replaceAll("#", "")}
         </StyledIssueContent>
         <StyledIssueDate>{value.modifiedDate}</StyledIssueDate>
         <StyledIssueUser>

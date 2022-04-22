@@ -47,7 +47,7 @@ const IssueList: React.FC<IssueListProps> = ({
               loading: <span></span>, //초기검색
               success: (
                 <Fragment>
-                  {data && data[0].content.length ? (
+                  {data&& data[0].content?.length ? (
                     data.map((value: any, index: number) => {
                       return (
                         <Fragment key={index}>

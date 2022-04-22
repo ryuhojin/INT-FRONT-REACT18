@@ -7,7 +7,7 @@ interface listParams {
 const selectAllIssue = async ({ query, page }: listParams) => {
   const queryParam = query ? `&query=${query}` : "";
   const { data } = await service.get(
-    `issue/list/latest?page=${page}&size=20${queryParam}`
+    `issue/list?page=${page}&size=20${queryParam}`
   );
   const content = data.content;
   const nextId = data.totalPages - 1 > data.number ? data.number + 1 : null;
