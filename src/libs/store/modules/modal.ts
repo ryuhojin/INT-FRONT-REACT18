@@ -1,4 +1,4 @@
-import { checkAuthEmail, sendAuthEmail } from "@/libs/api/modules/authApi";
+import { checkAuthEmail, sendAuthEmailForSignup } from "@/libs/api/modules/authApi";
 import useValidate from "@/libs/utils/useValidate";
 import React from "react";
 import {
@@ -86,7 +86,7 @@ const useAuthForm = () => {
       setForm({ ...form, ...{ emailCert: e.target.value } }),
     setIsSendCert: async () => {
       const isCorrectEmail = useValidate.email(form.email);
-      if (isCorrectEmail) await sendAuthEmail(form.email);
+      if (isCorrectEmail) await sendAuthEmailForSignup(form.email);
       setForm({
         ...form,
         ...{

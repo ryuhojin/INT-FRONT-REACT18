@@ -27,6 +27,9 @@ const registerUser = async (params: registerParams) => {
 const sendAuthEmail = async (email: string) => {
   return await service.get(`auth/sendAuthMail/${email}`);
 };
+const sendAuthEmailForSignup = async (email:string) => {
+  return await service.get(`auth/sendSignUpMail/${email}`)
+}
 //인증메일 확인
 const checkAuthEmail = async (email: string, number: string) => {
   return await service.get(`auth/checkAuthNum/${email}?authNum=${number}`);
@@ -58,6 +61,7 @@ export {
   loginUser,
   registerUser,
   sendAuthEmail,
+  sendAuthEmailForSignup,
   checkAuthEmail,
   refreshUser,
   deleteUser,
