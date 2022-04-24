@@ -3,6 +3,7 @@ import { Search, SubTitle } from "@/components/common";
 import { IssueAdd, IssueItem } from ".";
 import React, { Fragment } from "react";
 import useAuth from "@/libs/store/modules/auth";
+import IssueItemContainer from "@/containers/list/IssueItemContainer";
 
 const StyledIssueList = styled.div``;
 const StyledIssueItemList = styled.div`
@@ -52,7 +53,7 @@ const IssueList: React.FC<IssueListProps> = ({
                       return (
                         <Fragment key={index}>
                           {value.content.map((value: any, index: number) => {
-                            return <IssueItem key={index} value={value} />;
+                            return <IssueItemContainer key={index} value={value} />;
                           })}
                         </Fragment>
                       );

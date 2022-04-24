@@ -1,5 +1,5 @@
 import { Helmet } from "react-helmet-async";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useLocation } from "react-router-dom";
 import loadable from "@loadable/component";
 
 import Core from "@/containers/base/Core";
@@ -16,8 +16,9 @@ const loadableConfig = {
 };
 const User = loadable(() => import("@/pages/UserPage"), loadableConfig);
 const Write = loadable(() => import("@/pages/WritePage"), loadableConfig);
-
+const Detail = loadable(() => import("@/pages/DetailPage"), loadableConfig);
 const Root = () => {
+  // console.log(useLocation());
   return (
     <>
       <Helmet>
@@ -32,6 +33,7 @@ const Root = () => {
         <Route path="/" element={<Home />} />
         <Route path="/user" element={<User />} />
         <Route path="/write" element={<Write />} />
+        <Route path="/detail/:id" element={<Detail />} />
       </Routes>
 
       <Core />

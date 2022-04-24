@@ -7,6 +7,7 @@ const StyledIssueItem = styled.div`
   margin-right: 0.5rem;
   border-radius: 5px;
   background: #fff;
+  cursor: pointer;
   border: 1px solid #ddd;
   ${media.small} {
     margin-left: 0rem;
@@ -15,6 +16,15 @@ const StyledIssueItem = styled.div`
     border: 0;
     border-top: 1px solid #ddd;
     border-bottom: 1px solid #ddd;
+  }
+  :hover {
+    background: #fff9f9;
+    transform: translate(0, -5px);
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
+    transition: all 0.2s;
+    ${media.small} {
+      transform: none;
+    }
   }
 `;
 const StyledIssuCategoryContainer = styled.div`
@@ -96,10 +106,11 @@ const StyledIssueUserInfo = styled.span`
 
 interface IssueItemProps {
   value: any;
+  onClick: () => void;
 }
-const IssueItem: React.FC<IssueItemProps> = ({ value }) => {
+const IssueItem: React.FC<IssueItemProps> = ({ value, onClick }) => {
   return (
-    <StyledIssueItem>
+    <StyledIssueItem onClick={onClick}>
       <StyledIssuCategoryContainer>
         <StyledIssueCategory>
           <StyledIssueCategoryTitle>{value.title}</StyledIssueCategoryTitle>

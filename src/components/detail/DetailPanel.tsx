@@ -4,9 +4,11 @@ const StyledDetailPanel = styled.div`
   display: flex;
   flex-direction: column;
 `;
-
-const DetailPanel = () => {
-  return <></>;
+interface DetailPanelProps {
+  children: JSX.Element;
+}
+const DetailPanel: React.FC<DetailPanelProps> = ({ children }) => {
+  return <StyledDetailPanel>{children}</StyledDetailPanel>;
 };
 
 export default DetailPanel;

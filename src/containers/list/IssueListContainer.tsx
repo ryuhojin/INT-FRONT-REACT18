@@ -11,7 +11,9 @@ import React, { useRef } from "react";
 const IssueListContainer = () => {
   const hasMoreChecker = useRef();
   const [search, setSearch] = useSearchForSearch();
+
   refreshListStatus();
+  
   const { status, data, fetchNextPage, hasNextPage, isFetchingNextPage } =
     useSelectAllIssue();
 
