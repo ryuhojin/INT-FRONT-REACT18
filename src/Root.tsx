@@ -6,7 +6,7 @@ import Core from "@/containers/base/Core";
 import BaseTemplate from "@/components/template/BaseTemplate";
 
 import Home from "@/pages/HomePage";
-import Detail from "@/pages/DetailPage"
+
 const loadableConfig = {
   fallback: (
     <BaseTemplate>
@@ -16,7 +16,7 @@ const loadableConfig = {
 };
 const User = loadable(() => import("@/pages/UserPage"), loadableConfig);
 const Write = loadable(() => import("@/pages/WritePage"), loadableConfig);
-// const Detail = loadable(() => import("@/pages/DetailPage"), loadableConfig);
+const Detail = loadable(() => import("@/pages/DetailPage"), loadableConfig);
 const Root = () => {
   return (
     <>
