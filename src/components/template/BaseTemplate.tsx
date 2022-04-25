@@ -10,7 +10,7 @@ const StyledBaseTemplate = styled.div`
 const StyledHeaderTemplate = styled.div`
   width: 100%;
   background: #fff;
-  dow: 0 4px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
 `;
 
 const StyledContentTemplate = styled.div`
